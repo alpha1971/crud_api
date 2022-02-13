@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 class todo(models.Model):
     Description = models.TextField()
-    Completed = models.BooleanField() 
-    Created_by = models.DateField(null=True) 
+    Completed = models.BooleanField(default=False) 
+    Created_by = models.DateField(auto_now_add=True) 
 
 
