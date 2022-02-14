@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-my^jh+17i&%9e_ao)=2d#mn=s^#3$z8c9y-9(o&6)pnr#(ofko
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['todo.iqbalhasan.dev'] 
+ALLOWED_HOSTS = ['todo.iqbalhasan.dev','127.0.0.1'] 
 
 
 # Application definition
