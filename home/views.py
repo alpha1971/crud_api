@@ -6,54 +6,72 @@ from rest_framework.response import Response
 from .serializers import *
 from .models import *
 from home import serializers 
+from django.db import connection
+
 # Create your views here.
 @api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE']) 
 # @api_view(['GET', 'POST']) 
 def todos(request, pk=None): 
     if request.method == 'GET':
         id=pk 
-        print(id) 
         if id is not None: 
-            todo_data = todo.objects.get(id=id)
-            print(todo_data)   
+            # todo_data = todo.objects.get(id=id)
+            todo_data = todo.objects.raw('SELECT * FROM home_todo WHERE id=%s',[id])[0]
+            # print(todo_data)   
             serializer = TodoSerializer(todo_data)  
             return Response({"message": "Get Data", "data":serializer.data}) 
-        todo_data =todo.objects.all()  
+        # todo_data =todo.objects.all() 
+        todo_data=todo.objects.raw('SELECT * FROM home_todo') 
         serializer = TodoSerializer(todo_data,many=True) 
         return Response({"message": "all data", "data":serializer.data}) 
         
     if request.method == "POST":
-        serializer = TodoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
+        # return Response({request.Description})
+        # return Response(request.data['id'])
+        with connection.cursor() as cursor:
+            cursor.execute('INSERT INTO home_todo (Description, Completed,Created_by) VALUES (%s, %s,%s)',[request.data['Description'],request.data['Completed'],request.data['Created_by']])
+            row = cursor.fetchone()
+
+        # serializer = todo.objects.raw()
+        # serializer = TodoSerializer(serializer)
+        # if serializer.is_valid():
+            # serializer.save()
             return Response({"Data Created"})
         return Response({serializer.errors}) 
    
     
     
     if request.method == "PUT":
-        id=pk
-        todo_data = todo.objects.get(id=id)
-        serializer = TodoSerializer(todo_data,data=request.data)
-        if serializer.is_valid():
-            serializer.save()
+        with connection.cursor() as cursor:
+            cursor.execute('UPDATE home_todo SET Description = %s,Created_by = %s WHERE id = %s' ,[request.data['Description'],request.data['Created_by'],pk])
+            row = cursor.fetchone()
+        # todo_data = todo.objects.get(id=id)
+        # serializer = TodoSerializer(todo_data,data=request.data)
+        # if serializer.is_valid():
+            # serializer.save()
             return Response({"Data Update"})
         return Response({serializer.errors})  
 
 
     if request.method == "PATCH":
-        id=pk
-        todo_data = todo.objects.get(id=id)
-        serializer = TodoSerializer(todo_data,data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
+        with connection.cursor() as cursor:
+            cursor.execute('UPDATE home_todo SET Description = %s,Created_by = %s WHERE id = %s' ,[request.data['Description'],request.data['Created_by'],pk])
+            row = cursor.fetchone()
+        # id=pk
+        # todo_data = todo.objects.get(id=id)
+        # serializer = TodoSerializer(todo_data,data=request.data, partial=True)
+        # if serializer.is_valid():
+        #     serializer.save()
             return Response({"Data  patch"}) 
         return Response({serializer.errors})  
     
     if request.method == "DELETE":
-        id=pk
-        todo_data = todo.objects.get(id=id)
-        todo_data.delete()  
+        # id=pk
+        # todo_data = todo.objects.get(id=id)
+        # todo_data.delete() 
+        with connection.cursor() as cursor:
+            cursor.execute('DELETE FROM home_todo WHERE id = %s' ,[pk])
+            row = cursor.fetchone() 
         return Response({"Data  Delete"}) 
       
     
@@ -70,8 +88,7 @@ def completed(request, id=None):
     
         
 def create(request):
-        serializer = TodoSerializer(data={request.Description,request.Completed,request.Created_by}) 
-        if serializer.is_valid():
-            serializer.save() 
-            return Response({"Data Created"})
-        return Response({serializer.errors}) 
+    with connection.cursor() as cursor:
+        cursor.execute('INSERT INTO home_todo (Description, Completed,Created_by) VALUES (%s, %s,%s)',[request.data['Description'],request.data['Completed'],request.data['Created_by']])
+        row = cursor.fetchone()
+    return Response({"Data Created"})
