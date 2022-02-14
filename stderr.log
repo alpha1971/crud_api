@@ -1,0 +1,225 @@
+Traceback (most recent call last):
+  File "/home/iqbaldev/todo.iqbalhasan.dev/passenger_wsgi.py", line 1, in <module>
+    from api.wsgi import application
+  File "/home/iqbaldev/todo.iqbalhasan.dev/api/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/apps/registry.py", line 91, in populate
+    app_config = AppConfig.create(entry)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/apps/config.py", line 223, in create
+    import_module(entry)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib64/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ModuleNotFoundError: No module named 'corsheaders'
+Traceback (most recent call last):
+  File "/home/iqbaldev/todo.iqbalhasan.dev/passenger_wsgi.py", line 1, in <module>
+    from api.wsgi import application
+  File "/home/iqbaldev/todo.iqbalhasan.dev/api/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/apps/registry.py", line 83, in populate
+    raise RuntimeError("populate() isn't reentrant")
+RuntimeError: populate() isn't reentrant
+Traceback (most recent call last):
+  File "/home/iqbaldev/todo.iqbalhasan.dev/passenger_wsgi.py", line 1, in <module>
+    from api.wsgi import application
+  File "/home/iqbaldev/todo.iqbalhasan.dev/api/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/apps/registry.py", line 83, in populate
+    raise RuntimeError("populate() isn't reentrant")
+RuntimeError: populate() isn't reentrant
+Invalid HTTP_HOST header: 'todo.iqbalhasan.dev'. You may need to add 'todo.iqbalhasan.dev' to ALLOWED_HOSTS.
+Bad Request: /api
+None
+None
+None
+None
+Internal Server Error: /api/create/
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iqbaldev/todo.iqbalhasan.dev/home/views.py", line 68, in create
+    serializer = TodoSerializer(data=request.data)
+AttributeError: 'WSGIRequest' object has no attribute 'data'
+Internal Server Error: /api/create/
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iqbaldev/todo.iqbalhasan.dev/home/views.py", line 68, in create
+    serializer = TodoSerializer(data=request.data)
+AttributeError: 'WSGIRequest' object has no attribute 'data'
+None
+Internal Server Error: /api/create/
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iqbaldev/todo.iqbalhasan.dev/home/views.py", line 68, in create
+    serializer = TodoSerializer(data=request.data)
+AttributeError: 'WSGIRequest' object has no attribute 'data'
+None
+Internal Server Error: /api/create/
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iqbaldev/todo.iqbalhasan.dev/home/views.py", line 68, in create
+    serializer = TodoSerializer(data=request.data)
+AttributeError: 'WSGIRequest' object has no attribute 'data'
+Not Found: /favicon.ico
+Internal Server Error: /api/create/
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iqbaldev/todo.iqbalhasan.dev/home/views.py", line 73, in create
+    serializer = TodoSerializer(data={request.Description,request.Completed,request.Created_by})
+AttributeError: 'WSGIRequest' object has no attribute 'Description'
+None
+Not Found: /api/store
+Internal Server Error: /api/create/
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iqbaldev/todo.iqbalhasan.dev/home/views.py", line 73, in create
+    serializer = TodoSerializer(data={request.Description,request.Completed,request.Created_by})
+AttributeError: 'WSGIRequest' object has no attribute 'Description'
+Internal Server Error: /api/create/
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iqbaldev/todo.iqbalhasan.dev/home/views.py", line 73, in create
+    serializer = TodoSerializer(data={request.Description,request.Completed,request.Created_by})
+AttributeError: 'WSGIRequest' object has no attribute 'Description'
+Internal Server Error: /api
+Traceback (most recent call last):
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/utils/deprecation.py", line 125, in __call__
+    response = self.process_request(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/middleware/common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/home/iqbaldev/virtualenv/todo.iqbalhasan.dev/3.8/lib/python3.8/site-packages/django/middleware/common.py", line 88, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to todo.iqbalhasan.dev/api/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+None
+Not Found: /api
+Not Found: /api
+Not Found: /api//4
+Not Found: /api/3
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+Not Found: /api
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None

@@ -22,7 +22,12 @@ def todos(request, pk=None):
         serializer = TodoSerializer(todo_data,many=True) 
         return Response({"message": "all data", "data":serializer.data}) 
         
-
+    if request.method == "POST":
+        serializer = TodoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"Data Created"})
+        return Response({serializer.errors}) 
    
     
     
@@ -52,7 +57,7 @@ def todos(request, pk=None):
         return Response({"Data  Delete"}) 
       
     
-def complated(request, id=None):
+def completed(request, id=None):
     
     todo_data = todo.objects.get(pk=id) 
     if todo_data.Completed:
@@ -65,7 +70,7 @@ def complated(request, id=None):
     
         
 def create(request):
-        serializer = TodoSerializer(data=request.data) 
+        serializer = TodoSerializer(data={request.Description,request.Completed,request.Created_by}) 
         if serializer.is_valid():
             serializer.save() 
             return Response({"Data Created"})

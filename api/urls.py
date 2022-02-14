@@ -23,7 +23,7 @@ urlpatterns = [
     path('api/', views.todos, name="todo"),
     path('api/create/', views.create, name="todo_create"),
     path('api/<int:pk>/', views.todos, name="todo"),  
-    path('api/<int:id>/complate/', views.complated, name="todo_complated"),  
+    path('api/<int:id>/completed/', views.completed, name="todo_complated"),  
 
 
 
