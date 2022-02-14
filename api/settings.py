@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-my^jh+17i&%9e_ao)=2d#mn=s^#3$z8c9y-9(o&6)pnr#(ofko
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [] 
+ALLOWED_HOSTS = ['todo.iqbalhasan.dev'] 
 
 
 # Application definition
@@ -46,9 +46,10 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -129,8 +130,10 @@ STATIC_ROOT = BASE_DIR / 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_COOKIE_SECURE =True 
-
-CORS_ALLOWED_ORIGINS = [
+CORS_ALLOWED_ORIGINS=True
+CORS_ALLOW_ALL_ORIGINS=True
+APPEND_SLASH=False
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:9000",
     "http://127.0.0.1",
