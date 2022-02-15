@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', views.todos, name="todo"),
-    path('api/create/', views.create, name="todo_create"),
+    path('api/create/', views.create, name="todo_create"), 
     path('api/<int:pk>/', views.todos, name="todo"),  
     path('api/<int:id>/completed/', views.completed, name="todo_complated"),  
 

@@ -10,13 +10,12 @@ from django.db import connection
 
 # Create your views here.
 @api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE']) 
-# @api_view(['GET', 'POST']) 
 def todos(request, pk=None): 
     if request.method == 'GET':
         id=pk 
         if id is not None: 
             # todo_data = todo.objects.get(id=id)
-            todo_data = todo.objects.raw('SELECT * FROM home_todo WHERE id=%s',[id])[0]
+            todo_data = todo.objects.raw('SELECT * FROM home_todo WHERE id=%s',[id])[0] 
             # print(todo_data)   
             serializer = TodoSerializer(todo_data)  
             return Response({"message": "Get Data", "data":serializer.data}) 
