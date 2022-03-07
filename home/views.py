@@ -1,4 +1,5 @@
 from telnetlib import STATUS
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from rest_framework.decorators import api_view
@@ -91,3 +92,7 @@ def create(request):
         cursor.execute('INSERT INTO home_todo (Description, Completed,Created_by) VALUES (%s, %s,%s)',[request.data['Description'],request.data['Completed'],request.data['Created_by']])
         row = cursor.fetchone()
     return Response({"Data Created"})
+
+def show(request):
+    return render(request, 'index.html') 
+   

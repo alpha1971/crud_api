@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.show, name="show"),
     path('api/', views.todos, name="todo"),
     path('api/create/', views.create, name="todo_create"), 
     path('api/<int:pk>/', views.todos, name="todo"),  
